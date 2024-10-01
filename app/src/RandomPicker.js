@@ -23,7 +23,7 @@ function RandomPicker() {
   } else {
     return (
       <div className="bigtext">
-        You're receiving food from {countries[Math.floor(random(0, 5))]}
+        You're receiving food from {countries[Math. floor(random(0, 5))]}
       </div>
     );
   }
