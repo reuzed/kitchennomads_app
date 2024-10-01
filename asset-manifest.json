@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kitchennomads_app/static/css/main.cd178c15.css",
-    "main.js": "/kitchennomads_app/static/js/main.23c652cc.js",
+    "main.js": "/kitchennomads_app/static/js/main.0fb382df.js",
     "index.html": "/kitchennomads_app/index.html",
     "main.cd178c15.css.map": "/kitchennomads_app/static/css/main.cd178c15.css.map",
-    "main.23c652cc.js.map": "/kitchennomads_app/static/js/main.23c652cc.js.map"
+    "main.0fb382df.js.map": "/kitchennomads_app/static/js/main.0fb382df.js.map"
   },
   "entrypoints": [
     "static/css/main.cd178c15.css",
-    "static/js/main.23c652cc.js"
+    "static/js/main.0fb382df.js"
   ]
 }
