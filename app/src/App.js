@@ -13,7 +13,7 @@ function App() {
       <br />
       {clicked && <RandomPicker></RandomPicker>}
       <br />
-      <h2 className="App">2385 5 Star Reviews</h2>
+      <h2 className="App">4000 5 Star Reviews</h2>
       <br />
       <br />
       <br />
