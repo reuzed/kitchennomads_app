@@ -1,27 +1,39 @@
 import "./App.css";
-import RandomPicker from "./RandomPicker";
 import { useState } from "react";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { themeOptions } from "./theme";
+
+import { Box, Button } from "@mui/material";
+
+import DeliveryAnimation from "./DeliveryAnimation";
+import BoxOpener from "./BoxOpener";
+import PaymentScreen from "./PaymentScreen";
+import TopBar from "./TopBar";
+import OrderButton from "./OrderButton";
+import RandomFood from "./RandomFood";
+
+const theme = createTheme(themeOptions);
 
 function App() {
-  const [clicked, setClicked] = useState(0);
+  const [ordered, setOrdered] = useState(false);
+  const [paid, setPaid] = useState(false);
+  const [delivered, setDelivered] = useState(false);
+  const [opened, setOpened] = useState(false);
+
   return (
-    <>
-      <h1>Kitchen Nomads</h1>
-      <button className="App" onClick={() => setClicked(1)}>
-        Click Me To Order a Box
-      </button>
+    <ThemeProvider theme={theme}>
+      <TopBar />
       <br />
-      {clicked && <RandomPicker></RandomPicker>}
-      <br />
-      <h2 className="App">4000 5 Star Reviews</h2>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h4 className="App">Supports abolition of 2cbc</h4>
-    </>
+      <Box className="centerFlex">
+        {!ordered && <OrderButton setOrdered={setOrdered} />}
+        {ordered && !paid && <PaymentScreen setPaid={setPaid} />}
+        {paid && !delivered && (
+          <DeliveryAnimation setDelivered={setDelivered} />
+        )}
+        {delivered && !opened && <BoxOpener setOpened={setOpened} />}
+        {opened && <RandomFood />}
+      </Box>
+    </ThemeProvider>
   );
 }
 

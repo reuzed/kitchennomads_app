@@ -1,23 +1,87 @@
+
 .App{
     text-align: center;
     justify-content: center;
-    background-color: antiquewhite;
-    color: darkred;
+}
+
+/* #f0ead2; */
+.TopBar{
+    width:1;
+    background-color: #f0ead2;
+    font-size: 30pt;
+    padding:100;
+    margin:100;
+}
+
+.centerFlex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
+    font-size: 20px;
+    padding: 5px;
+    z-index: 100;
+  }
+
+body{
+    font-size: 20pt;
+    background-image: url("assets/vegetable_line.jpeg");
 }
 
 h1{
     text-align: center;
     justify-content: center;
-    background-color: antiquewhite;
-    color:black;
 }
 
 .bigbutton{
-    font-size: 10em;
- width:3em;
- height:3em;
+    background-color: #f0ead2;
+    font-size: 200px;
+ width:500px;
+ height:500px;
 }
 
 .bigtext{
     font-size: 10em;
+}
+
+.applelogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+
+@keyframes slide{
+    from {left: 0%}
+    to {left:100%}
+}
+
+.slidingdiv{
+    position:absolute;
+    top:30%;
+    animation-name: slide;
+    animation-duration: 2s;
+}
+
+.vanimg{
+    width: 200%;
+}
+
+.leftbox{
+ transform: rotate(20deg);
+}
+
+.rightbox{
+ transform: rotate(-20deg);
 }

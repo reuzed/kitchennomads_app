@@ -1,0 +1,168 @@
+/*  
+  The button is composed of two separate layers.
+  The .front layer contains the content of the button.
+  The .back layer creates a side of a button.
+*/
+
+/* Style button as a container */
+button {
+    /* the button thickness variable */
+    --button-thickness: 0.22em;
+    /* the button press scale variable */
+    --button-scale: 0.95;
+    /* the button glow filter on hover variable */
+    --button-hover-glow: 1.04;
+    /* the button transition duration variable */
+    --button-press-duration: 50ms;
+    /* the button transition delay variable */
+    --button-pressed-duration: 10ms;
+    
+    /* remove blue highligt on mobile chromium browsers */
+    -webkit-tap-highlight-color: transparent;
+    
+    position: relative;
+  }
+  
+  /* Style front and back layer of the button */
+  button .front, 
+  button .back {
+    background: linear-gradient(45deg, var(--color-gradient-from), var(--color-gradient-to));
+    border-radius: 999px;
+    
+    transform-origin: bottom center;
+    shape-rendering: optimizespeed;
+    background-origin: border-box;
+  }
+  
+  /* Style front layer of the button */
+  button .front {
+    filter: contrast(1.2);
+    padding: 0.8em 3em calc(0.8em - var(--button-thickness) / 5) 3em;
+    box-shadow: 
+      1px -1px 2px 0 hsla(0, 0%, 0%, 0.06),
+      3px -3px 4px 0 hsla(0, 0%, 0%, 0.08);
+    transition: 
+      transform var(--button-press-duration) ease-in var(--button-pressed-duration),
+      box-shadow var(--button-press-duration) ease-in var(--button-pressed-duration);
+  }
+  
+  /* Style back layer of the button */
+  button .back {
+    /* Make it slightly darker */
+    filter: brightness(0.9);
+    
+    /* Make it the same size as the front layer */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+   
+    /* Apply perspective transformation */
+    transform: 
+      translatey(var(--button-thickness))
+      scale(var(--button-scale));
+  }
+  
+  /* On button hover and focus */
+  button:hover .front, 
+  button:focus .front {
+    /* Make the button glow on hover and focus */
+    filter: contrast(1.2) brightness(var(--button-hover-glow));
+    /* Let's create anticipation before the button press */
+    transform: translatey(-1px);
+    box-shadow: 
+      1px -1px 3px 0 hsla(0, 0%, 0%, 0.05),
+      3px -3px 5px 0 hsla(0, 0%, 0%, 0.07);
+  }
+  
+  /* On button hover and focus */
+  button:hover .back, 
+  button:focus .back { 
+    /* Make the button glow on hover and focus */
+    filter: brightness(calc(var(--button-hover-glow) - 0.1));
+  }
+  
+  /* On button press */
+  button:active .front {
+    /* Transform acording to the perspective */
+    transform: 
+      translatey(var(--button-thickness))
+      scale(var(--button-scale));
+    /* Make shadows smaller */
+    box-shadow: 
+      0 0 1px 0 hsla(0, 0%, 0%, 0.06),
+      1px -1px 1px 0 hsla(0, 0%, 0%, 0.08);
+    
+    transition: 
+      transform var(--button-press-duration) ease-in,
+      box-shadow var(--button-press-duration) ease-in;
+    
+    /* On touch screens make press transition faster */
+    @media (hover: none) and (pointer: coarse) {
+      transition: 
+        transform calc(var(--button-press-duration) / 2) ease-in,
+        box-shadow calc(var(--button-press-duration) / 2) ease-in;
+    }
+  }
+  
+  /* Style button's text */
+  button p {
+    font-weight: 500;
+    mix-blend-mode: overlay;
+    text-rendering: optimizeSpeed;
+  }
+  
+  /* Make shadows stronger on dark background */
+  @media (prefers-color-scheme: dark) {
+    button .front { 
+       box-shadow: 
+         1px -1px 2px 0 hsla(0, 0%, 0%, 0.12),
+         3px -3px 4px 0 hsla(0, 0%, 0%, 0.23);
+    }
+    
+    button:active .front {
+       box-shadow: 
+         0 0 1px 0 hsla(0, 0%, 0%, 0.12),
+         1px -1px 1px 0 hsla(0, 0%, 0%, 0.23);
+    }
+  }
+  
+  /*  Reset default button styles */
+  button {
+    appearance: none;
+    font-family: 'Work Sans', sans-serif;
+    font-size: calc(1rem + 1.5vmin);
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    color: var(--color-on-primary);
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  /* Don't forget about keyboard only styles */
+  button:focus-visible .front {
+    /* Add simple outline */
+    outline: 2px var(--color-primary) solid;
+    outline-offset: 0.6em;
+  }
+  
+  button:focus-visible {
+    /* Remove default outline from the button */
+    outline: none;
+  }
+  
+  /* Setup color variables */
+  :root {
+    --color-background: hsl(4, 9%, 69%);
+    --color-on-background: hsl(4, 3%, 7%);
+    --color-primary: hsl(4, 54%, 50%);
+    --color-gradient-from: hsl(136, 100%, 24%);
+    --color-gradient-to: hsl(136, 100%, 24%);
+    --color-on-primary: hsl(4, 3%, 99%);    
+  }
+  
+  
+  /* Import Work Sans font from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
