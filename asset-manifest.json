@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/kitchennomads_app/static/css/main.10361a7d.css",
-    "main.js": "/kitchennomads_app/static/js/main.0647ff7a.js",
+    "main.js": "/kitchennomads_app/static/js/main.df824cab.js",
     "static/media/cardboard_box_bgless.png": "/kitchennomads_app/static/media/cardboard_box_bgless.8934ba470e626c9cfeb7.png",
     "static/media/van_color_bgless.png": "/kitchennomads_app/static/media/van_color_bgless.747b351dea1e58451c49.png",
     "static/media/applepay_bgless.png": "/kitchennomads_app/static/media/applepay_bgless.71a58c075edde3c3fd10.png",
     "index.html": "/kitchennomads_app/index.html",
     "main.10361a7d.css.map": "/kitchennomads_app/static/css/main.10361a7d.css.map",
-    "main.0647ff7a.js.map": "/kitchennomads_app/static/js/main.0647ff7a.js.map"
+    "main.df824cab.js.map": "/kitchennomads_app/static/js/main.df824cab.js.map"
   },
   "entrypoints": [
     "static/css/main.10361a7d.css",
-    "static/js/main.0647ff7a.js"
+    "static/js/main.df824cab.js"
   ]
 }
